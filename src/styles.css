@@ -1,0 +1,108 @@
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2013/10/27/17/14/snowfall-201496_1280.jpg");
+  background-size: cover;
+  color: #0f213f;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  background: linear-gradient(to top, #fff1eb99 0%, #ace0f9 100%);
+  border: solid 4px grey;
+  border-radius: 25px;
+  display: block;
+  max-width: 465px;
+  margin: 20px auto;
+  padding: 30px;
+  position: relative;
+}
+
+.input {
+  background-color: #fef1eb99;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 8px;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.search {
+  border: transparent;
+  background-color: transparent;
+  padding: 8px;
+}
+
+.current-location {
+  border: transparent;
+  background-color: transparent;
+  padding: 8px;
+}
+
+.precipitation-wind {
+  margin-left: 35px;
+  position: absolute;
+  top: 187px;
+}
+
+h1 {
+  font-weight: bolder;
+  margin-top: 0px;
+}
+
+.weather-emoji {
+  font-size: 70px;
+}
+
+.precipitation-wind {
+  font-size: smaller;
+  margin-top: 90px;
+}
+
+.units {
+  font-size: 18px;
+  position: relative;
+  top: -10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-inactive {
+  color: #0f213f;
+  font-weight: bold;
+}
+
+.weather {
+  font-size: 25px;
+  font-weight: bolder;
+}
+hr {
+  margin-top: 0px;
+}
+
+.row {
+  margin-top: 2px;
+}
+
+.col {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.day:hover {
+  background-color: #cde7f3;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+footer {
+  color: #0f213f;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
