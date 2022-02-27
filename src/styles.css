@@ -73,6 +73,10 @@ a {
   color: #0f213f;
   font-weight: bold;
 }
+.link-inactive:hover {
+  color: #0f213f;
+  cursor: default;
+}
 
 .weather {
   font-size: 25px;
