@@ -49,15 +49,19 @@ function showTemperature(response) {
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
-  let city = document.querySelector("#city");
-  city.innerHTML = searchInput.value;
-  let apiKey = "9c55ea90da683c1de40704337e5e7c02";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(showTemperature);
+  showCityTemperature(searchInput.value);
 }
 
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", search);
+
+function showCityTemperature(cityName) {
+  let apiKey = "9c55ea90da683c1de40704337e5e7c02";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+showCityTemperature("Vienna");
 
 function convertFahrenheit(event) {
   event.preventDefault();
