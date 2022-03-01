@@ -97,7 +97,7 @@ function showPosition(position) {
   axios.get(`${apiUrl}&units=metric&appid=${apiKey}`).then(showTemperature);
 }
 
-function getLocation(position) {
+function getLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
