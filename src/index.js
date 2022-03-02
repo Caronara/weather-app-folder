@@ -25,6 +25,39 @@ if (minutes < 10) {
 let date = document.querySelector(".currentDate");
 date.innerHTML = `${day} ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col day">
+      <div class="weather-forecast-date">
+        <strong>${day}</strong>
+      </div>
+      <br />
+      🌨
+      <br />
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-max">
+          <strong>1°</strong>
+        </span>
+        
+        <span class="weather-forecast-temperature-min">-2°</span>
+      </div>
+    </div>
+  
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   let city = response.data.name;
   let cityElement = document.querySelector("#city");
@@ -62,6 +95,8 @@ function showCityTemperature(cityName) {
 }
 
 showCityTemperature("Vienna");
+
+displayForecast();
 
 function convertFahrenheit(event) {
   event.preventDefault();
