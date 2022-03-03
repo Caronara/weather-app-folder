@@ -25,37 +25,57 @@ if (minutes < 10) {
 let date = document.querySelector(".currentDate");
 date.innerHTML = `${day} ${hours}:${minutes}`;
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col day">
       <div class="weather-forecast-date">
-        <strong>${day}</strong>
+        <strong>${formatDay(forecastDay.dt)}</strong>
       </div>
-      <br />
-      🌨
-      <br />
+      <img src="https://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png" 
+      alt="" 
+      width="42"
+      />
       <div class="weather-forecast-temperatures">
         <span class="weather-forecast-temperature-max">
-          <strong>1°</strong>
+          <strong>${Math.round(forecastDay.temp.max)}°</strong>
         </span>
         
-        <span class="weather-forecast-temperature-min">-2°</span>
+        <span class="weather-forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
       </div>
     </div>
   
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "9c55ea90da683c1de40704337e5e7c02";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -77,6 +97,8 @@ function showTemperature(response) {
   let emoji = response.data.weather[0].icon;
   let emojiElement = document.querySelector(".weather-emoji");
   emojiElement.innerHTML = `<img src="https://openweathermap.org/img/wn/${emoji}@2x.png">`;
+
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -95,8 +117,6 @@ function showCityTemperature(cityName) {
 }
 
 showCityTemperature("Vienna");
-
-displayForecast();
 
 function convertFahrenheit(event) {
   event.preventDefault();
