@@ -99,6 +99,59 @@ function showTemperature(response) {
   emojiElement.innerHTML = `<img src="https://openweathermap.org/img/wn/${emoji}@2x.png">`;
 
   getForecast(response.data.coord);
+
+  let bodyElement = document.querySelector("body");
+  let timeElement = new Date().getHours();
+
+  bodyElement.classList.remove(
+    "background-clearsky-day",
+    "background-clearsky-night",
+    "background-clouds",
+    "background-drizzle",
+    "background-fog",
+    "background-rain",
+    "background-snowfall",
+    "background-thunderstorm"
+  );
+
+  if (
+    weatherElement.innerHTML === "Clear" &&
+    timeElement > 5 &&
+    timeElement < 20
+  ) {
+    bodyElement.classList.replace("background-clearsky-day");
+  }
+
+  if (
+    weatherElement.innerHTML === "Clear" &&
+    (timeElement < 6 || timeElement > 19)
+  ) {
+    bodyElement.classList.add("background-clearsky-night");
+  }
+
+  if (weatherElement.innerHTML === "Clouds") {
+    bodyElement.classList.add("background-clouds");
+  }
+
+  if (weatherElement.innerHTML === "Drizzle") {
+    bodyElement.classList.add("background-drizzle");
+  }
+
+  if (weatherElement.innerHTML === "Fog") {
+    bodyElement.classList.add("background-fog");
+  }
+
+  if (weatherElement.innerHTML === "Rain") {
+    bodyElement.classList.add("background-rain");
+  }
+
+  if (weatherElement.innerHTML === "Snow") {
+    bodyElement.classList.replace("background-snowfall");
+  }
+
+  if (weatherElement.innerHTML === "Thunderstorm") {
+    bodyElement.classList.replace("background-thunderstorm");
+  }
 }
 
 function search(event) {

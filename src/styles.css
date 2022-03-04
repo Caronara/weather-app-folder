@@ -1,8 +1,48 @@
 body {
-  background-image: url("https://cdn.pixabay.com/photo/2013/10/27/17/14/snowfall-201496_1280.jpg");
+  background-image: url("../images/snowfall.webp");
   background-size: cover;
   color: #0f213f;
   font-family: "Poppins", sans-serif;
+}
+
+.background-clearsky-day {
+  background-image: url("../images/clearsky-day.webp");
+  background-size: cover;
+}
+
+.background-clearsky-night {
+  background-image: url("../images/clearsky-night.jpg");
+  background-size: cover;
+}
+
+.background-clouds {
+  background-image: url("../images/clouds3.jpg");
+  background-size: cover;
+}
+
+.background-drizzle {
+  background-image: url("../images/drizzle.jpg");
+  background-size: cover;
+}
+
+.background-fog {
+  background-image: url("../images/fog.jpg");
+  background-size: cover;
+}
+
+.background-rain {
+  background-image: url("../images/rain.jpg");
+  background-size: cover;
+}
+
+.background-snowfall {
+  background-image: url("../images/snowfall.webp");
+  background-size: cover;
+}
+
+.background-thunderstorm {
+  background-image: url("../images/thunderstorm3.jpg");
+  background-size: cover;
 }
 
 .container {
@@ -100,7 +140,7 @@ hr {
 .day:hover {
   background-color: #cde7f3;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: default;
 }
 
 footer {
