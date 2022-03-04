@@ -47,7 +47,7 @@ body {
 
 .container {
   background: linear-gradient(to top, #fff1eb99 0%, #ace0f9 100%);
-  border: solid 4px grey;
+  border: solid 2px grey;
   border-radius: 25px;
   display: block;
   max-width: 465px;
@@ -143,8 +143,12 @@ hr {
   cursor: default;
 }
 
+.github {
+  color: white;
+}
+
 footer {
-  color: #0f213f;
+  color: white;
   font-size: small;
   font-weight: bold;
   text-align: center;

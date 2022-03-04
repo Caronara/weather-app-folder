@@ -173,6 +173,9 @@ showCityTemperature("Vienna");
 
 function convertFahrenheit(event) {
   event.preventDefault();
+  if (fahrenheitLink.classList.contains("link-inactive")) {
+    return;
+  }
   temperature.innerHTML = Math.round(temperature.innerHTML * 1.8 + 32);
   fahrenheitLink.classList.add("link-inactive");
   celsiusLink.classList.remove("link-inactive");
@@ -187,6 +190,9 @@ let temperature = document.querySelector(".temperature");
 
 function convertCelsius(event) {
   event.preventDefault();
+  if (celsiusLink.classList.contains("link-inactive")) {
+    return;
+  }
   temperature.innerHTML = Math.round(((temperature.innerHTML - 32) * 5) / 9);
   celsiusLink.classList.add("link-inactive");
   fahrenheitLink.classList.remove("link-inactive");
