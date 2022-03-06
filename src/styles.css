@@ -76,7 +76,7 @@ body {
 .current-location {
   border: transparent;
   background-color: transparent;
-  padding: 8px;
+  padding-top: 8px;
 }
 
 .precipitation-wind {
@@ -127,7 +127,7 @@ hr {
 }
 
 .row {
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .col {
